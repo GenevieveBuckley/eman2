@@ -151,7 +151,8 @@ def main():
 				s=EMData(seg, i)
 				for c in range(p_copy):
 					tr=Transform()
-					rd=random.random()*360
+					# Restrict rotation in augmentations
+					rd=(random.random()*20)-10  #random.random()*360
 					tr.set_rotation({"type":"2d","alpha":rd})
 					e=t.process("xform",{"transform":tr})
 					#e.process_inplace("normalize")
@@ -172,7 +173,8 @@ def main():
 				if t==None: continue
 				for c in range(options.ncopy):
 					tr=Transform()
-					rd=random.random()*360
+					# Restrict rotation in augmentations
+					rd=(random.random()*20)-10  #random.random()*360
 					tr.set_rotation({"type":"2d","alpha":rd})
 					e=t.process("xform",{"transform":tr})
 					#e.process_inplace("normalize")
